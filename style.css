@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
+:root {
+  --Cyan: hsl(179, 62%, 43%);
+  --Bright-Yellow: hsl(71, 73%, 54%);
+  --Light-Gray: hsl(204, 43%, 93%);
+  --Grayish-Blue: hsl(218, 22%, 67%);
+  --font-family: "Karla", sans-serif;
+  --btn-shadow: hsl(179, 66%, 35%);
+  --Cyan-light: hsl(179, 51%, 53%);
+  --card-shadow: hsl(216, 14%, 79%);
+}
+
+/*******
+Global
+*******/
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: var(--Light-Gray);
+  padding: 15px;
+  justify-items: center;
+}
+
+/*******
+Card
+*******/
+
+.center {
+  max-width: 90vw;
+
+  display: grid;
+  place-content: center;
+  border-radius: 5px;
+  box-shadow: 0 13px 15px 5px var(--card-shadow);
+}
+
+/*******
+First column
+*******/
+
+.first {
+  background-color: white;
+  padding: 25px;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  row-gap: 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.first h1 {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  color: var(--Cyan);
+}
+
+.first h2 {
+  font-size: clamp(0.7rem, 4vw, 1rem);
+  color: var(--Bright-Yellow);
+}
+
+.first p {
+  color: var(--Grayish-Blue);
+  font-size: clamp(0.6rem, 3.5vw, 0.9rem);
+  line-height: 1.5;
+}
+
+/*******
+Second column
+*******/
+
+.second {
+  background-color: var(--Cyan);
+  padding: 25px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  row-gap: 5px;
+}
+
+.second .header-text {
+  font-size: clamp(1rem, 5vw, 1.2rem);
+  color: white;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.price-text {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: var(--Light-Gray);
+}
+
+h3 {
+  font-weight: 400;
+}
+
+.second p {
+  color: var(--Light-Gray);
+  font-size: clamp(0.6rem, 3.5vw, 0.9rem);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--Bright-Yellow);
+  color: white;
+  box-shadow: 0 10px 10px var(--btn-shadow);
+}
+
+/*******
+Third column
+*******/
+
+.third {
+  padding: 25px 35% 25px 25px;
+  background-color: var(--Cyan-light);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.third h2 {
+  font-size: clamp(1rem, 5vw, 1.2rem);
+  color: white;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.third p {
+  color: var(--Light-Gray);
+  font-size: clamp(0.6rem, 3.5vw, 0.7rem);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/*******
+Responsive
+*******/
+
+@media screen and (min-width: 730px) {
+  .center {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "first first" "second third";
+    width: 750px;
+  }
+
+  .first {
+    grid-area: first;
+  }
+
+  .second {
+    grid-area: second;
+    border-bottom-left-radius: 5px;
+  }
+
+  .third {
+    grid-area: third;
+    border-bottom-left-radius: 0;
+  }
+
+  .card {
+    padding: 40px;
+  }
+
+  .first p {
+    width: 500px;
+  }
+
+  .third p {
+    width: 150px;
+    line-height: 1.7;
+  }
+}
